@@ -1,0 +1,30 @@
+code.build:
+  engine: php
+  config:
+    runtime: php-7.0
+    extensions:
+      - gd
+      - mysqli
+      - curl
+      - zlib
+    apache_modules:
+      - deflate
+
+web.wp:
+  start:
+    fpm: /data/sbin/php-fpm -y /data/etc/php/php-fpm.conf -c /data/etc/php/php.ini
+    apache: /data/sbin/httpd -DNO_DETACH
+  log_watch:
+    apache[access]: /data/var/log/apache/access.log
+    apache[error]: /data/var/log/apache/error.log
+    php[error]: /data/var/log/php/php_error.log
+    php[fpm]: /data/var/log/php/php_fpm.log
+  network_dirs:
+    data.storage:
+      - wp-content/uploads/
+
+data.db:
+  image: nanobox/mysql
+
+data.storage:
+  image: nanobox/unfs
