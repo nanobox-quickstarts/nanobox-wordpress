@@ -1,35 +1,27 @@
 # WordPress on Nanobox
+This is the companion application for the [WordPress: Getting Started](https://guides.nanobox.io/wordpress/) guide on [guides.nanobox.io](https://guides.nanobox.io) and is pre-configured and ready to run on [nanobox](https://nanobox.io/)!
 
-This WordPress repo is preconfigured to quickly get WordPress up and running on [Nanobox](https://nanobox.io). Clone this repo to your local machine and do the following:
+## Up and Running
 
-## Install Nanobox
-If you haven't already, you'll need to [install Nanobox](https://docs.nanobox.io/getting-started/install-nanobox/).
+``` bash
 
-## Generate Auth Keys & Salts
-WordPress needs authentication keys and salts to create secure sessions. These are configured in your wp-config.php (lines 49-56). WordPress will generate auth keys and salts for you when you go [here](https://api.wordpress.org/secret-key/1.1/salt/).
+# clone the code
+git clone https://github.com/nanobox-quickstarts/nanobox-wordpress.git
 
-Add the generated auth keys and salts to your wp-config.php.
+# cd into the wordpress app
+cd nanobox-wordpress
 
-## Start Your Dev Environment
-Navigate into your WordPress directory and run:
+# build the code
+nanobox build
 
-```bash
-$ nanobox dev run
+# add a convenient way to access your app from the browser
+nanobox dev dns add wordpress.nanobox.dev
+
+# star the dev environment and run the app server (Apache & PHP-FPM)
+nanobox dev run
 ```
 
-This will generate a new build package, start your local dev environment, deploy the build into your dev environment, then start Apache and PHP-FPM.
+Visit the app from your favorite browser at: `wordpress.nanobox.dev:8080`
 
-## Add a DNS Alias to Your Dev App
-In a separate console, run the following command to add a DNS alias to your dev app. This will add an entry to your local hosts file and allow you to access your dev app at the specified domain.
-
-```bash
-$ nanobox dev dns add your-custom-domain.dev
-```
-
-## Visit Your Running Dev Site
-With your DNS alias in place, you can view your running dev WordPress site at:
-
-`your-custom-domain.dev:8080`
-
-#### Guides for WordPress on Nanobox
-More information about running WordPress on Nanobox is available in the [WordPress on Nanobox guides](https://guides.nanobox.io/wordpress/).
+### Now What?
+For more details about how this works or for more advanced topics related to running WordPress applications on nanobox, visit [guides.nanobox.io/wordpress/](https://guides.nanobox.io/wordpress/)

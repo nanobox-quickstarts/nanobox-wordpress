@@ -7,8 +7,6 @@ code.build:
       - mysqli
       - curl
       - zlib
-    apache_modules:
-      - deflate
 
 web.wp:
   start:
