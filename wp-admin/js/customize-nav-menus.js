@@ -104,6 +104,23 @@
 				deferred.resolve( response );
 				api.Menus.insertedAutoDrafts.push( response.post_id );
 				api( 'nav_menus_created_posts' ).set( _.clone( api.Menus.insertedAutoDrafts ) );
+
+				if ( 'page' === params.post_type ) {
+
+					// Activate static front page controls as this could be the first page created.
+					if ( api.section.has( 'static_front_page' ) ) {
+						api.section( 'static_front_page' ).activate();
+					}
+
+					// Add new page to dropdown-pages controls.
+					api.control.each( function( control ) {
+						var select;
+						if ( 'dropdown-pages' === control.params.type ) {
+							select = control.container.find( 'select[name^="_customize-dropdown-pages-"]' );
+							select.append( new Option( params.post_title, response.post_id ) );
+						}
+					} );
+				}
 			}
 		} );
 
@@ -1397,14 +1414,14 @@
 				}
 
 				var titleEl = control.container.find( '.menu-item-title' ),
-				    titleText = item.title || api.Menus.data.l10n.untitled;
+				    titleText = item.title || item.original_title || api.Menus.data.l10n.untitled;
 
 				if ( item._invalid ) {
 					titleText = api.Menus.data.l10n.invalidTitleTpl.replace( '%s', titleText );
 				}
 
 				// Don't update to an empty title.
-				if ( item.title ) {
+				if ( item.title || item.original_title ) {
 					titleEl
 						.text( titleText )
 						.removeClass( 'no-title' );
