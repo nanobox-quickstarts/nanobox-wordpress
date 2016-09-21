@@ -17,7 +17,7 @@ nanobox build
 # add a convenient way to access your app from the browser
 nanobox dev dns add wordpress.nanobox.dev
 
-# star the dev environment and run the app server (Apache & PHP-FPM)
+# start the dev environment and run the app server (Apache & PHP-FPM)
 nanobox dev run
 ```
 
