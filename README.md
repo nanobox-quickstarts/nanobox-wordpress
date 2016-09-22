@@ -11,8 +11,11 @@ git clone https://github.com/nanobox-quickstarts/nanobox-wordpress.git
 # cd into the wordpress app
 cd nanobox-wordpress
 
-# build the code
+# build runtime and compile application
 nanobox build
+
+# deploy runtime to dev environment
+nanobox dev deploy
 
 # add a convenient way to access your app from the browser
 nanobox dev dns add wordpress.nanobox.dev
