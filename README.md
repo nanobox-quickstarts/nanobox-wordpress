@@ -1,4 +1,4 @@
-# WordPress on Nanobox
+# WordPress with Nanobox
 This is the companion application for the [WordPress: Getting Started](https://guides.nanobox.io/wordpress/) guide on [guides.nanobox.io](https://guides.nanobox.io) and is pre-configured and ready to run on [nanobox](https://nanobox.io/)!
 
 ## Up and Running
