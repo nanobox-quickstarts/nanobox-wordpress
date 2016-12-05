@@ -1,11 +1,10 @@
-![CodeIgniter from scratch](https://guides.nanobox.io/assets/quickstart-icons/wordpress.png)
+![Wordpress from scratch](https://guides.nanobox.io/assets/quickstart-icons/wordpress.png)
 
 # WordPress from scratch
 
 Run a WordPress app locally, install nothing besides nanobox.
 
 <a href="https://nanobox.io/download"><img src="https://guides.nanobox.io/assets/quickstart-icons/download.png" /></a>
-
 
 ## Clone the repo
 
@@ -39,7 +38,7 @@ With Nanobox, you have everything you need develop and run your WordPress app:
 # drop into a Nanobox console
 nanobox run
 
-# where php is installed,
+# check the php version
 php -v
 
 # and your code is mounted
