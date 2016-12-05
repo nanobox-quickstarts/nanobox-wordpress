@@ -1,27 +1,55 @@
-# WordPress on Nanobox
-This is the companion application for the [WordPress: Getting Started](https://guides.nanobox.io/wordpress/) guide on [guides.nanobox.io](https://guides.nanobox.io) and is pre-configured and ready to run on [nanobox](https://nanobox.io/)!
+![CodeIgniter from scratch](https://guides.nanobox.io/assets/quickstart-icons/wordpress.png)
 
-## Up and Running
+# WordPress from scratch
 
-``` bash
+Run a WordPress app locally, install nothing besides nanobox.
 
+<a href="https://nanobox.io/download"><img src="https://guides.nanobox.io/assets/quickstart-icons/download.png" /></a>
+
+
+## Clone the repo
+
+```bash
 # clone the code
 git clone https://github.com/nanobox-quickstarts/nanobox-wordpress.git
 
 # cd into the wordpress app
 cd nanobox-wordpress
-
-# build the code
-nanobox build
-
-# add a convenient way to access your app from the browser
-nanobox dev dns add wordpress.nanobox.dev
-
-# start the dev environment and run the app server (Apache & PHP-FPM)
-nanobox dev run
 ```
 
-Visit the app from your favorite browser at: `wordpress.nanobox.dev:8080`
+## Run the app
 
-### Now What?
-For more details about how this works or for more advanced topics related to running WordPress applications on nanobox, visit [guides.nanobox.io/wordpress/](https://guides.nanobox.io/wordpress/)
+```bash
+nanobox run php-server
+```
+
+## Check it out
+
+```bash
+# Add a convenient way to access your app from the browser
+nanobox dns add local wordpress.dev
+```
+
+Visit your app at <a href="http://wordpress.dev" target="\_blank">wordpress.dev</a>
+
+## Explore
+With Nanobox, you have everything you need develop and run your WordPress app:
+
+```bash
+# drop into a Nanobox console
+nanobox run
+
+# where php is installed,
+php -v
+
+# and your code is mounted
+ls
+
+# exit the console
+exit
+```
+
+## Now What?
+For more details about running WordPress apps with nanobox, visit [guides.nanobox.io/php/wordpress/](https://guides.nanobox.io/php/wordpress/)
+
+<a href="https://nanobox.io"><img src="https://guides.nanobox.io/assets/quickstart-icons/footer.png" /></a>

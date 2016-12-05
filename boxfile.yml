@@ -1,6 +1,6 @@
-code.build:
+run.config:
   engine: php
-  config:
+  engine.config:
     runtime: php-7.0
     extensions:
       - gd
@@ -9,9 +9,7 @@ code.build:
       - zlib
 
 web.wp:
-  start:
-    fpm: start-php
-    apache: start-apache
+  start: php-server
   log_watch:
     apache[access]: /data/var/log/apache/access.log
     apache[error]: /data/var/log/apache/error.log
@@ -22,7 +20,7 @@ web.wp:
       - wp-content/uploads/
 
 data.db:
-  image: nanobox/mysql
+  image: nanobox/mysql:5.6
 
 data.storage:
-  image: nanobox/unfs
+  image: nanobox/unfs:0.9
