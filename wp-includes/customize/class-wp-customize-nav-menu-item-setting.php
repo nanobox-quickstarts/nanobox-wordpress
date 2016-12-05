@@ -267,6 +267,7 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 	 * Get original title.
 	 *
 	 * @since 4.7.0
+	 * @access protected
 	 *
 	 * @param object $item Nav menu item.
 	 * @return string The original title.
@@ -532,8 +533,9 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 		}
 
 		if ( ARRAY_A === $args['output'] ) {
-			$GLOBALS['_menu_item_sort_prop'] = $args['output_key'];
-			usort( $items, '_sort_nav_menu_items' );
+			$items = wp_list_sort( $items, array(
+				$args['output_key'] => 'ASC',
+			) );
 			$i = 1;
 
 			foreach ( $items as $k => $item ) {
@@ -599,6 +601,18 @@ class WP_Customize_Nav_Menu_Item_Setting extends WP_Customize_Setting {
 			} else {
 				$post->type_label = __( 'Custom Link' );
 			}
+		}
+
+		// Ensure nav menu item URL is set according to linked object.
+		if ( 'post_type' === $post->type && ! empty( $post->object_id ) ) {
+			$post->url = get_permalink( $post->object_id );
+		} elseif ( 'taxonomy' === $post->type && ! empty( $post->object ) && ! empty( $post->object_id ) ) {
+			$post->url = get_term_link( (int) $post->object_id, $post->object );
+		} elseif ( 'post_type_archive' === $post->type && ! empty( $post->object ) ) {
+			$post->url = get_post_type_archive_link( $post->object );
+		}
+		if ( is_wp_error( $post->url ) ) {
+			$post->url = '';
 		}
 
 		/** This filter is documented in wp-includes/nav-menu.php */
