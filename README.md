@@ -19,15 +19,14 @@ cd nanobox-wordpress
 ## Run the app
 
 ```bash
+# Add a convenient way to access your app from the browser
+nanobox dns add local wordpress.dev
+
+# Start PHP and Apache with the 'php-server' command
 nanobox run php-server
 ```
 
 ## Check it out
-
-```bash
-# Add a convenient way to access your app from the browser
-nanobox dns add local wordpress.dev
-```
 
 Visit your app at <a href="http://wordpress.dev" target="\_blank">wordpress.dev</a>
 
