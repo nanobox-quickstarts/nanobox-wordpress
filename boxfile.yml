@@ -10,11 +10,6 @@ run.config:
 
 web.wp:
   start: php-server
-  log_watch:
-    apache[access]: /data/var/log/apache/access.log
-    apache[error]: /data/var/log/apache/error.log
-    php[error]: /data/var/log/php/php_error.log
-    php[fpm]: /data/var/log/php/php_fpm.log
   network_dirs:
     data.storage:
       - wp-content/uploads/
